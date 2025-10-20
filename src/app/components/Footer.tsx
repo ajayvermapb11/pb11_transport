@@ -33,22 +33,22 @@ export default function Footer() {
             <h4 className="font-bold mb-4">Quick link</h4>
             <ul className="space-y-2 text-text-secondary">
               <li>
-                <a href="#" className="hover:text-primary-500">
+                <a href="#" className="hover:text-primary-600">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary-500">
+                <a href="#" className="hover:text-primary-600">
                   About
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary-500">
+                <a href="#" className="hover:text-primary-600">
                   Shipping
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary-500">
+                <a href="#" className="hover:text-primary-600">
                   Support
                 </a>
               </li>
@@ -72,9 +72,9 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Email"
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-400 text-sm"
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm"
               />
-              <button className="bg-primary-400 text-white px-6 py-2 rounded-md hover:bg-primary-500 text-sm font-semibold">
+              <button className="bg-primary-500 text-white px-6 py-2 rounded-md hover:bg-primary-600 text-sm font-semibold">
                 Subscribe
               </button>
             </div>

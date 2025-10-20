@@ -12,7 +12,7 @@ export default function CalculatePrice() {
 
   return (
     <section className="max-w-7xl mx-auto">
-      <div className="py-15 px-4 sm:px-6 lg:px-8  light:bg-[#E3F9E7] rounded-2xl">
+      <div className="py-15 px-4 sm:px-6 lg:px-8 bg-primary-100 dark:bg-primary-900 rounded-2xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl font-bold text-text-primary mb-4">
@@ -33,7 +33,7 @@ export default function CalculatePrice() {
             <div className="space-y-6">
               <div>
                 <label className="flex items-center gap-2 text-text-primary font-semibold mb-2">
-                  <span className="w-6 h-6 bg-primary-400 text-white rounded flex items-center justify-center text-sm">
+                  <span className="w-6 h-6 bg-primary-500 text-white rounded flex items-center justify-center text-sm">
                     1
                   </span>
                   Rental Dates
@@ -43,19 +43,19 @@ export default function CalculatePrice() {
                     type="date"
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
                   />
                   <input
                     type="date"
                     value={endDate}
                     onChange={(e) => setEndDate(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
                   />
                 </div>
               </div>
               <div>
                 <label className="flex items-center gap-2 text-text-primary font-semibold mb-2">
-                  <span className="w-6 h-6 bg-primary-400 text-white rounded flex items-center justify-center text-sm">
+                  <span className="w-6 h-6 bg-primary-500 text-white rounded flex items-center justify-center text-sm">
                     2
                   </span>
                   Van Type
@@ -63,7 +63,7 @@ export default function CalculatePrice() {
                 <select
                   value={vanType}
                   onChange={(e) => setVanType(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-400"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
                 >
                   <option value="">Select Van Type</option>
                   <option value="small">Small Van</option>
@@ -73,7 +73,7 @@ export default function CalculatePrice() {
               </div>
               <div>
                 <label className="flex items-center gap-2 text-text-primary font-semibold mb-2">
-                  <span className="w-6 h-6 bg-primary-400 text-white rounded flex items-center justify-center text-sm">
+                  <span className="w-6 h-6 bg-primary-500 text-white rounded flex items-center justify-center text-sm">
                     3
                   </span>
                   Locations
@@ -84,18 +84,18 @@ export default function CalculatePrice() {
                     placeholder="Pickup Location"
                     value={pickupLocation}
                     onChange={(e) => setPickupLocation(e.target.value)}
-                    className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-400"
+                    className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
                   />
                   <input
                     type="text"
                     placeholder="Drop-off Location"
                     value={dropoffLocation}
                     onChange={(e) => setDropoffLocation(e.target.value)}
-                    className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-400"
+                    className="px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
                   />
                 </div>
               </div>
-              <button className="w-full bg-primary-400 text-white py-3 rounded-md hover:bg-primary-500 font-semibold">
+              <button className="w-full bg-primary-500 text-white py-3 rounded-md hover:bg-primary-600 font-semibold">
                 Calculate
               </button>
             </div>

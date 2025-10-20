@@ -13,7 +13,7 @@ export default function Services() {
             <p className="text-text-secondary mb-8">
               PB11 Transport offers a range of services to meet your needs, including company portfolio and service presentation, an online booking system with form submission, and an administrative dashboard for booking management.
             </p>
-            <button className="bg-primary-400 text-white px-8 py-3 rounded-md hover:bg-primary-500 font-semibold">
+            <button className="bg-primary-500 text-white px-8 py-3 rounded-md hover:bg-primary-600 font-semibold">
               Read more
             </button>
           </div>

@@ -59,17 +59,17 @@ export default function Testimonials() {
                 onClick={() => setActiveTestimonial(index)}
                 className={`flex items-center gap-4 p-4 rounded-2xl cursor-pointer transition-all ${
                   activeTestimonial === index
-                    ? "bg-primary-100 dark:bg-primary-900/30 shadow-md"
-                    : "bg-[#E3F9E7] dark:bg-gray-800 hover:bg-primary-50 dark:hover:bg-gray-700"
+                    ? "bg-primary-200 dark:bg-primary-800/30 shadow-md"
+                    : "bg-primary-100 dark:bg-primary-900 hover:bg-primary-200 dark:hover:bg-primary-800"
                 }`}
               >
                 {/* Avatar */}
                 <div className="relative flex-shrink-0">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-xl font-bold overflow-hidden">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white text-xl font-bold overflow-hidden">
                     {testimonial.name.charAt(0)}
                   </div>
                   {activeTestimonial === index && (
-                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-primary-400 rounded-full flex items-center justify-center">
+                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center">
                       <div className="w-2 h-2 bg-white rounded-full"></div>
                     </div>
                   )}
@@ -86,7 +86,7 @@ export default function Testimonials() {
                 <ChevronRight
                   className={`w-6 h-6 transition-colors ${
                     activeTestimonial === index
-                      ? "text-primary-500 dark:text-primary-400"
+                      ? "text-primary-600 dark:text-primary-500"
                       : "text-gray-400 dark:text-gray-600"
                   }`}
                 />
@@ -96,7 +96,7 @@ export default function Testimonials() {
 
           {/* Right Side - Testimonial Content */}
           <div className="lg:col-span-8">
-            <div className="bg-[#E3F9E7] dark:bg-gray-800 rounded-3xl p-8 md:p-12 relative min-h-[400px] transition-all">
+            <div className="bg-primary-100 dark:bg-primary-900 rounded-3xl p-8 md:p-12 relative min-h-[400px] transition-all">
               {/* Quote Mark */}
               <div className="absolute top-8 right-8 text-8xl font-serif text-gray-300 dark:text-gray-700 opacity-50">
                 66

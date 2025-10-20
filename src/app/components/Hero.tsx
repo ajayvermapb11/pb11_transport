@@ -11,7 +11,7 @@ export default function Hero() {
               Reliable Van Rentals for Your Delivery Needs{" "}
               <span className="relative inline-block">
                 <span className="relative z-10">in the UK</span>
-                <span className="absolute bottom-2 left-0 w-full h-3 bg-primary-200 -rotate-1"></span>
+                <span className="absolute bottom-2 left-0 w-full h-3 bg-primary-300 -rotate-1"></span>
               </span>
             </h1>
             <p className="text-text-secondary text-lg mb-8">
@@ -21,9 +21,9 @@ export default function Hero() {
               <input
                 type="text"
                 placeholder="Enter Tracking Number"
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-400"
+                className="flex-1 px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
               />
-              <button className="bg-primary-400 text-white px-8 py-3 rounded-md hover:bg-primary-500 font-semibold">
+              <button className="bg-primary-500 text-white px-8 py-3 rounded-md hover:bg-primary-600 font-semibold">
                 Check
               </button>
             </div>
