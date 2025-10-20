@@ -36,7 +36,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="pt-20 px-4 sm:px-6 lg:px-8 bg-background dark:bg-gray-900">
+    <section className="pt-20 pb-5 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -60,7 +60,7 @@ export default function Testimonials() {
                 className={`flex items-center gap-4 p-4 rounded-2xl cursor-pointer transition-all ${
                   activeTestimonial === index
                     ? "bg-primary-100 dark:bg-primary-900/30 shadow-md"
-                    : "bg-background-secondary dark:bg-gray-800 hover:bg-primary-50 dark:hover:bg-gray-700"
+                    : "bg-[#E3F9E7] dark:bg-gray-800 hover:bg-primary-50 dark:hover:bg-gray-700"
                 }`}
               >
                 {/* Avatar */}
@@ -96,7 +96,7 @@ export default function Testimonials() {
 
           {/* Right Side - Testimonial Content */}
           <div className="lg:col-span-8">
-            <div className="bg-background-secondary dark:bg-gray-800 rounded-3xl p-8 md:p-12 relative min-h-[400px] transition-all">
+            <div className="bg-[#E3F9E7] dark:bg-gray-800 rounded-3xl p-8 md:p-12 relative min-h-[400px] transition-all">
               {/* Quote Mark */}
               <div className="absolute top-8 right-8 text-8xl font-serif text-gray-300 dark:text-gray-700 opacity-50">
                 66

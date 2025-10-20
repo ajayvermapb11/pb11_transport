@@ -11,8 +11,8 @@ export default function CalculatePrice() {
   const [dropoffLocation, setDropoffLocation] = useState("");
 
   return (
-    <section className="py-15 px-4 sm:px-6 lg:px-8 bg-secondary">
-      <div className="max-w-7xl mx-auto">
+    <section className="max-w-7xl mx-auto">
+      <div className="py-15 px-4 sm:px-6 lg:px-8  light:bg-[#E3F9E7] rounded-2xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl font-bold text-text-primary mb-4">
