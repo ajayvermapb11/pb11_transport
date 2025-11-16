@@ -2,7 +2,7 @@ import { Package, Truck, MapPin } from "lucide-react";
 
 export default function HowItWorks() {
   return (
-    <section className="pb-10 px-4 sm:px-6 lg:px-8">
+    <section className="pb-10 px-4 sm:px-6 lg:px-8 my-5">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-primary-950 mb-4">
