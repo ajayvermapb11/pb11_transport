@@ -7,7 +7,7 @@ export default function Specialties() {
             Our specialties
           </h2>
           <p className="text-primary-900">
-            We focus on providing a seamless and efficient van rental
+            We focus on providing a seamless and efficient van service
             experience.
           </p>
         </div>
