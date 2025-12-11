@@ -2,19 +2,64 @@
 
 import { useAppSelector } from '@/store/hooks';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useAppDispatch } from '@/store/hooks';
+import { setCredentials, logout } from '@/store/authSlice';
 
 export default function DashboardPage() {
   const { user, isAuthenticated } = useAppSelector((state) => state.auth);
   const router = useRouter();
+  const dispatch = useAppDispatch();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!isAuthenticated) {
-      router.push('/login');
-    }
-  }, [isAuthenticated, router]);
+    const verifyAuth = async () => {
+      try {
+        // Call /api/auth/me to verify the token
+        const response = await fetch('/api/auth/me', {
+          credentials: 'include',
+        });
 
-  if (!isAuthenticated) {
+        if (response.ok) {
+          const data = await response.json();
+          if (data.success) {
+            // Update Redux state with verified user
+            const token = localStorage.getItem('token') || '';
+            dispatch(setCredentials({ user: data.user, token }));
+            setLoading(false);
+            return;
+          }
+        }
+
+        // If verification failed, logout and redirect
+        dispatch(logout());
+        router.push('/login');
+      } catch (error) {
+        console.error('Auth verification error:', error);
+        dispatch(logout());
+        router.push('/login');
+      }
+    };
+
+    if (!isAuthenticated) {
+      verifyAuth();
+    } else {
+      setLoading(false);
+    }
+  }, [isAuthenticated, router, dispatch]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#E3F9E7' }}>
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated || !user) {
     return null;
   }
 
@@ -81,6 +126,28 @@ export default function DashboardPage() {
               </div>
             </div>
           </div>
+
+          {user?.role === 'admin' && (
+            <div className="mt-8">
+              <h2 className="text-2xl font-bold mb-4" style={{ color: '#1a202c' }}>
+                Admin Actions
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button
+                  onClick={() => router.push('/dashboard/admin/quotes')}
+                  className="p-6 rounded-lg border-2 hover:shadow-lg transition-shadow text-left"
+                  style={{ backgroundColor: '#F0FDF4', borderColor: '#C7F2D1' }}
+                >
+                  <h3 className="text-lg font-semibold mb-2" style={{ color: '#2E8E45' }}>
+                    📋 Manage Quotes
+                  </h3>
+                  <p style={{ color: '#257037' }}>
+                    View and manage customer quote requests
+                  </p>
+                </button>
+              </div>
+            </div>
+          )}
 
           <div className="mt-8 p-6 rounded-lg border-2" style={{ backgroundColor: '#F0FDF4', borderColor: '#C7F2D1' }}>
             <h3 className="text-lg font-semibold mb-2" style={{ color: '#2E8E45' }}>

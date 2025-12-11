@@ -38,6 +38,7 @@ export default function LoginPage() {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify(formData),
       });
 
@@ -54,7 +55,12 @@ export default function LoginPage() {
       }
 
       dispatch(setCredentials({ user: data.user, token: data.token }));
-      router.push('/');
+
+      // Wait a bit for cookie to be set, then redirect
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
+      // Force a full page reload to ensure middleware picks up the cookie
+      window.location.href = '/dashboard';
     } catch {
       setApiError('An unexpected error occurred. Please try again.');
       dispatch(setLoading(false));

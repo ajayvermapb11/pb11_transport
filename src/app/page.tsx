@@ -7,6 +7,7 @@ import Specialties from "./components/Specialties";
 import CalculatePrice from "./components/CalculatePrice";
 import Services from "./components/Services";
 import Testimonials from "./components/Testimonials";
+import QuoteForm from "./components/QuoteForm";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <HowItWorks />
       <CalculatePrice />
       <Services />
+      <QuoteForm />
       <Testimonials />
     </div>
   );

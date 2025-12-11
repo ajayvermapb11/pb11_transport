@@ -56,7 +56,9 @@ export default function SignupPage() {
       }
 
       dispatch(setCredentials({ user: data.user, token: data.token }));
-      router.push('/');
+
+      // Force a full page reload to ensure middleware picks up the cookie
+      window.location.href = '/dashboard';
     } catch {
       setApiError('An unexpected error occurred. Please try again.');
       dispatch(setLoading(false));

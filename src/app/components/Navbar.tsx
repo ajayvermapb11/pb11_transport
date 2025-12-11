@@ -11,9 +11,19 @@ export default function Navbar() {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
-  const handleLogout = () => {
-    dispatch(logout());
-    router.push("/");
+  const handleLogout = async () => {
+    try {
+      // Call logout API to clear cookie
+      await fetch('/api/auth/logout', {
+        method: 'POST',
+      });
+    } catch (error) {
+      console.error('Logout error:', error);
+    } finally {
+      // Clear local state regardless
+      dispatch(logout());
+      router.push("/");
+    }
   };
 
   return (
@@ -29,41 +39,43 @@ export default function Navbar() {
             />
           </div>
           <div className="hidden md:flex space-x-8 items-center">
-            <a
-              href="#"
+            <Link
+              href="/"
               className="hover:underline"
               style={{ color: "#718096" }}
             >
               Home
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/about-us"
               className="hover:underline"
               style={{ color: "#718096" }}
             >
-              Tracking
-            </a>
-            <a
-              href="#"
+              About Us
+            </Link>
+            <Link
+              href="/my-quotes"
               className="hover:underline"
               style={{ color: "#718096" }}
             >
-              Shipping
-            </a>
-            <a
-              href="#"
-              className="hover:underline"
-              style={{ color: "#718096" }}
-            >
-              Location
-            </a>
-            <a
-              href="#"
+              My Quotes
+            </Link>
+            <Link
+              href="/support"
               className="hover:underline"
               style={{ color: "#718096" }}
             >
               Support
-            </a>
+            </Link>
+            {isAuthenticated && user?.role === 'admin' && (
+              <Link
+                href="/dashboard/admin/quotes"
+                className="hover:underline"
+                style={{ color: "#718096" }}
+              >
+                Admin
+              </Link>
+            )}
             {isAuthenticated ? (
               <div className="flex items-center space-x-4">
                 <span style={{ color: "#1a202c" }}>Welcome, {user?.name}</span>

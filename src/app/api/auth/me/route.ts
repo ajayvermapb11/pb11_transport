@@ -5,9 +5,17 @@ import { verifyToken } from '@/lib/jwt';
 
 export async function GET(req: NextRequest) {
   try {
-    const authHeader = req.headers.get('authorization');
-    
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    // Check for token in cookies first, then in Authorization header
+    let token = req.cookies.get('token')?.value;
+
+    if (!token) {
+      const authHeader = req.headers.get('authorization');
+      if (authHeader && authHeader.startsWith('Bearer ')) {
+        token = authHeader.substring(7);
+      }
+    }
+
+    if (!token) {
       return NextResponse.json(
         {
           success: false,
@@ -17,8 +25,6 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    const token = authHeader.substring(7);
-    
     const decoded = verifyToken(token);
     
     if (!decoded) {
